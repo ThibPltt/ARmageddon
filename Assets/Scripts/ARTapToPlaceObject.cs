@@ -17,7 +17,7 @@ private void Awake ( )
 _arRaycastManager = GetComponent<ARRaycastManager > ( ) ;
 }
 bool TryGetTouchPosition(out Vector2 touchPosition)
-{ // Cette fonction permet de d t e c t e r lorsque l ' u t i l i s a t e u r touche l ' cran
+{
 if(Input.touchCount > 0)
 {
         touchPosition = Input.GetTouch(index: 0).position;
@@ -28,17 +28,17 @@ if(Input.touchCount > 0)
 }
 void Update()
 {
-    if( !TryGetTouchPosition(out Vector2 touchPosition) ) return;
-    if(_arRaycastManager.Raycast (touchPosition, hits ,
-    trackableTypes : TrackableType.PlaneWithinPolygon ) )
+    if( !TryGetTouchPosition(out Vector2 touchPosition)) return;
+    if(_arRaycastManager.Raycast (touchPosition, hits,
+    trackableTypes : TrackableType.PlaneWithinPolygon ))
 {
     var hitPose = hits[0].pose;
     if(spawnedObject == null)
 {
-        spawnedObject = Instantiate(gameObjectToInstantiate ,
-        hitPose.position , hitPose.rotation);
+        spawnedObject = Instantiate(gameObjectToInstantiate,
+        hitPose.position, hitPose.rotation);
     }
     else spawnedObject.transform.position = hitPose.position;
-}
+    }
 }
 }
