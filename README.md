@@ -11,10 +11,10 @@ Battlefield simulation in augmented reality on an Android phone, built with Unit
 | **Dates** | 2025 |
 | **Context** | augmented reality · solo project · ENSIM |
 | **Technologies** | AR · Unity · C# · AR Foundation · Android |
+| **Play it** | [v0.1 Android APK](https://github.com/ThibPltt/ARmageddon/releases/latest) (ARCore device) |
 | **Video** | [Demo on YouTube](https://www.youtube.com/watch?v=-H1b89DvUtM) |
 | **Case study** | [thibautplatet.com/en/projects/armageddon.html](https://thibautplatet.com/en/projects/armageddon.html) |
 | **Documents** | [Report](Documentation/2025_AR_PLATET_rapport.pdf) · [Slides](Documentation/2025_AR_PLATET_presentation.pdf) (PDF, in French) |
-| **Play it** | [v0.1 Android APK](https://github.com/ThibPltt/ARmageddon/releases/latest) (ARCore device) |
 
 ## Problem
 
@@ -131,4 +131,13 @@ The packages below are **not included** in this repository and are not covered b
 | `Assets/Soldiers` | [Toony Tiny People Demo](https://assetstore.unity.com/packages/slug/113188) — Polygon Blacksmith | Unity Asset Store | Asset Store EULA |
 | `Assets/Buildings` | [Toony Tiny City Demo](https://assetstore.unity.com/packages/slug/176087), with the Toony Tiny Citizens demo | Unity Asset Store | Asset Store EULA |
 | `Assets/Terrain` | [Low-Poly Simple Nature Pack](https://assetstore.unity.com/packages/slug/162153) — Just Create | Unity Asset Store | Asset Store EULA |
-| `Assets/TextMesh Pro` | TextMesh Pro — Unity | Unity package | Unity Companion Licence |
+
+Included in the repository under their own licences:
+
+- `Assets/TextMesh Pro`: TextMesh Pro, a Unity package under the Unity Companion Licence.
+
+<details>
+<summary>🇫🇷 En bref</summary>
+
+Simulation de champ de bataille en réalité augmentée sur téléphone Android, sous Unity : faire apparaître un champ de bataille miniature dans la pièce, et pouvoir en faire le tour pour l’observer sous tous les angles. Projet réalisé seul à l’ENSIM (2025). APK Android dans les [Releases](https://github.com/ThibPltt/ARmageddon/releases/latest). Fiche complète sur [thibautplatet.com](https://thibautplatet.com/projets/armageddon.html).
+</details>
