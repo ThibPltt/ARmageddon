@@ -14,7 +14,7 @@ Battlefield simulation in augmented reality on an Android phone, built with Unit
 | **Video** | [Demo on YouTube](https://www.youtube.com/watch?v=-H1b89DvUtM) |
 | **Case study** | [thibautplatet.com/en/projects/armageddon.html](https://thibautplatet.com/en/projects/armageddon.html) |
 | **Documents** | [Report](Documentation/2025_AR_PLATET_rapport.pdf) · [Slides](Documentation/2025_AR_PLATET_presentation.pdf) (PDF, in French) |
-| **Play it** | [Android APK](https://github.com/ThibPltt/ARmageddon/raw/main/apk_build/Build.apk) (ARCore device) |
+| **Play it** | [v0.1 Android APK](https://github.com/ThibPltt/ARmageddon/releases/latest) (ARCore device) |
 
 ## Problem
 
@@ -107,7 +107,7 @@ Scenes: `Assets/Scenes/MainScene.unity` (the game) and `Assets/Scenes/Test.unity
 
 ## Run it
 
-- **On a phone:** download [`apk_build/Build.apk`](https://github.com/ThibPltt/ARmageddon/raw/main/apk_build/Build.apk) and install it on an Android device that supports ARCore (allow installs from unknown sources).
+- **On a phone:** download `ARmageddon_v0.1.apk` from the [latest release](https://github.com/ThibPltt/ARmageddon/releases/latest) and install it on an Android device that supports ARCore (allow installs from unknown sources).
 - **From the source:** open the project with Unity **2022.3.50f1** (also runs with 2022.3.37f1), switch the platform to Android in *File › Build Settings*, then *Build And Run* with the phone connected over USB (developer mode enabled). AR Foundation 5.1 with ARCore, XR Interaction Toolkit, UI Toolkit.
 
 ## Next steps
