@@ -124,12 +124,11 @@ The code and the original content of this repository (scripts, scenes, prefabs, 
 
 ### Third-party assets
 
-The packages below are **not** covered by the MIT licence: they stay under their publishers’ terms (mostly the [Unity Asset Store EULA](https://unity.com/legal/as-terms)). To reuse them in another project, get them from their store page; Unity keeps their GUIDs, so a re-import restores the references.
+The packages below are **not included** in this repository and are not covered by the MIT licence: they stay under their publishers’ terms (mostly the [Unity Asset Store EULA](https://unity.com/legal/as-terms)). To open the full project, get them from their store page and import them into the folder shown; Unity keeps their GUIDs, so the scenes find them again. The playable builds are in the [Releases](https://github.com/ThibPltt/ARmageddon/releases/latest).
 
 | Folder | Asset | Source | Licence |
 |---|---|---|---|
-| `Assets/Soldiers/TT_soldiers_Demo` | [Toon Soldiers Demo](https://assetstore.unity.com/packages/slug/69684) — Polygon Blacksmith | Unity Asset Store | Asset Store EULA |
-| `Assets/Buildings/PolygonBlacksmith` | Toon citizens demo — Polygon Blacksmith | Unity Asset Store | Asset Store EULA |
-| `Assets/Buildings/Meshes`<br>`Assets/Buildings/Textures`<br>`Assets/Buildings/Prefabs` | Low-poly city demo (blocks, asphalt, car) | Unity Asset Store | Asset Store EULA |
-| `Assets/Terrain` | [Low Poly Nature Pack Lite](https://assetstore.unity.com/packages/slug/288596) | Unity Asset Store | Asset Store EULA |
+| `Assets/Soldiers` | [Toony Tiny People Demo](https://assetstore.unity.com/packages/slug/113188) — Polygon Blacksmith | Unity Asset Store | Asset Store EULA |
+| `Assets/Buildings` | [Toony Tiny City Demo](https://assetstore.unity.com/packages/slug/176087), with the Toony Tiny Citizens demo | Unity Asset Store | Asset Store EULA |
+| `Assets/Terrain` | [Low-Poly Simple Nature Pack](https://assetstore.unity.com/packages/slug/162153) — Just Create | Unity Asset Store | Asset Store EULA |
 | `Assets/TextMesh Pro` | TextMesh Pro — Unity | Unity package | Unity Companion Licence |

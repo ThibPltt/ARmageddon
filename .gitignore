@@ -64,3 +64,25 @@ crashlytics-build.properties
 # Temporary auto-generated Android Assets
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
+
+# Third-party packages (Unity Asset Store and others): not redistributed, see the README
+/Assets/Bombs/
+/Assets/Bombs.meta
+/Assets/BTM_Assets/
+/Assets/BTM_Assets.meta
+/Assets/SimpleNaturePack/
+/Assets/SimpleNaturePack.meta
+/Assets/Terrain/
+/Assets/Terrain.meta
+/Assets/Tiny_Toony_City_Demo/
+/Assets/Tiny_Toony_City_Demo.meta
+/Assets/Buildings/
+/Assets/Buildings.meta
+/Assets/Water/
+/Assets/Water.meta
+/Assets/BasicToonWaterShader/
+/Assets/BasicToonWaterShader.meta
+/Assets/ToonyTinyPeople/
+/Assets/ToonyTinyPeople.meta
+/Assets/Soldiers/
+/Assets/Soldiers.meta
