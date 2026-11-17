@@ -117,3 +117,19 @@ Several teams of soldiers, water and roads, a bombing system.
 ## Credits
 
 Solo project by Thibaut Platet, ENSIM, 2025. Trees, rocks, soldiers and buildings: 3D models from asset packs imported into Unity, under their own licences. More on [thibautplatet.com](https://thibautplatet.com/en/projects/armageddon.html).
+
+## Licence
+
+The code and the original content of this repository (scripts, scenes, prefabs, own models, textures and sounds) are released under the [MIT licence](LICENSE).
+
+### Third-party assets
+
+The packages below are **not** covered by the MIT licence: they stay under their publishers’ terms (mostly the [Unity Asset Store EULA](https://unity.com/legal/as-terms)). To reuse them in another project, get them from their store page; Unity keeps their GUIDs, so a re-import restores the references.
+
+| Folder | Asset | Source | Licence |
+|---|---|---|---|
+| `Assets/Soldiers/TT_soldiers_Demo` | [Toon Soldiers Demo](https://assetstore.unity.com/packages/slug/69684) — Polygon Blacksmith | Unity Asset Store | Asset Store EULA |
+| `Assets/Buildings/PolygonBlacksmith` | Toon citizens demo — Polygon Blacksmith | Unity Asset Store | Asset Store EULA |
+| `Assets/Buildings/Meshes`<br>`Assets/Buildings/Textures`<br>`Assets/Buildings/Prefabs` | Low-poly city demo (blocks, asphalt, car) | Unity Asset Store | Asset Store EULA |
+| `Assets/Terrain` | [Low Poly Nature Pack Lite](https://assetstore.unity.com/packages/slug/288596) | Unity Asset Store | Asset Store EULA |
+| `Assets/TextMesh Pro` | TextMesh Pro — Unity | Unity package | Unity Companion Licence |
