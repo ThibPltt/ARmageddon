@@ -142,7 +142,7 @@ MonoBehaviour:
   - {fileID: 4382463246117417870}
   - {fileID: -1441586506256043815}
   - {fileID: -894651564908129244}
-  - {fileID: 4841952346819810651}
+  - {fileID: 4436788862813806297}
   - {fileID: 5071279090424816880}
   - {fileID: -7440657797319678357}
   - {fileID: -1246278017097637995}
@@ -163,6 +163,7 @@ MonoBehaviour:
   m_colorSubmissionModes:
     m_List: 00000000
   m_depthSubmissionMode: 0
+  m_spacewarpMotionVectorTextureFormat: 0
   m_optimizeBufferDiscards: 0
   m_symmetricProjection: 0
 --- !u!114 &-6518565710257530030
@@ -395,6 +396,9 @@ MonoBehaviour:
   - visibleName: Quest 3
     manifestName: eureka
     enabled: 1
+  - visibleName: Quest 3S
+    manifestName: quest3s
+    enabled: 1
   forceRemoveInternetPermission: 0
   symmetricProjection: 0
   foveatedRenderingApi: 0
@@ -402,6 +406,8 @@ MonoBehaviour:
   optimizeBufferDiscards: 1
   lateLatchingMode: 0
   lateLatchingDebug: 0
+  optimizeMultiviewRenderRegions: 0
+  spacewarpMotionVectorTextureFormat: 0
 --- !u!114 &-3113150803949412514
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -779,7 +785,7 @@ MonoBehaviour:
   - {fileID: 4794238084000863842}
   - {fileID: -7077475522982428366}
   - {fileID: -3113150803949412514}
-  - {fileID: 7375400746633902313}
+  - {fileID: -3533061004389407397}
   - {fileID: 2746966327884432604}
   - {fileID: 828114197395868027}
   - {fileID: -615853479670863390}
@@ -793,6 +799,7 @@ MonoBehaviour:
   m_colorSubmissionModes:
     m_List: 00000000
   m_depthSubmissionMode: 0
+  m_spacewarpMotionVectorTextureFormat: 0
   m_optimizeBufferDiscards: 0
   m_symmetricProjection: 0
 --- !u!114 &11400000
@@ -872,6 +879,7 @@ MonoBehaviour:
   m_colorSubmissionModes:
     m_List: 00000000
   m_depthSubmissionMode: 0
+  m_spacewarpMotionVectorTextureFormat: 0
   m_optimizeBufferDiscards: 0
   m_symmetricProjection: 0
 --- !u!114 &828114197395868027
@@ -1315,7 +1323,7 @@ MonoBehaviour:
   - {fileID: 1260676446090704363}
   - {fileID: 7919950732500850988}
   - {fileID: -3326680513797396712}
-  - {fileID: 6418469642595449473}
+  - {fileID: 854837697645726425}
   - {fileID: -2514230519116318712}
   - {fileID: 3993529313450857495}
   - {fileID: -2209947559314925586}
@@ -1335,6 +1343,7 @@ MonoBehaviour:
   m_colorSubmissionModes:
     m_List: 00000000
   m_depthSubmissionMode: 0
+  m_spacewarpMotionVectorTextureFormat: 0
   m_optimizeBufferDiscards: 0
   m_symmetricProjection: 0
 --- !u!114 &5650784573949842801
