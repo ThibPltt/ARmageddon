@@ -4,7 +4,7 @@
 
 Battlefield simulation in augmented reality on an Android phone, built with Unity.
 
-<a href="https://www.youtube.com/watch?v=-H1b89DvUtM"><img src="docs/media/video-poster.jpg" width="100%" alt="Watch the ARmageddon demo video on YouTube: the game's logo over two phone captures, a hilly wooded terrain in a room and three soldiers in front of a brick building."></a>
+<a href="https://www.youtube.com/shorts/AMHYUN7mcR4"><img src="docs/media/video-poster.jpg" width="100%" alt="Watch the ARmageddon v1.0 demo on YouTube: the game's logo over two phone captures, a hilly wooded terrain in a room and three soldiers in front of a brick building."></a>
 
 | At a glance | |
 |---|---|
@@ -12,7 +12,7 @@ Battlefield simulation in augmented reality on an Android phone, built with Unit
 | **Context** | augmented reality · solo project · ENSIM |
 | **Technologies** | AR · Unity · C# · AR Foundation · Android |
 | **Play it** | [v1.0 Android APK](https://github.com/ThibPltt/ARmageddon/releases/latest) (ARCore device) |
-| **Video** | [Demo on YouTube](https://www.youtube.com/watch?v=-H1b89DvUtM) (v0.2 prototype) |
+| **Video** | [v1.0 demo on YouTube](https://www.youtube.com/shorts/AMHYUN7mcR4) (a full game, voice-over in French) |
 | **Case study** | [thibautplatet.com/en/projects/armageddon.html](https://thibautplatet.com/en/projects/armageddon.html) |
 | **Documents** | [Report](Documentation/2025_AR_PLATET_rapport.pdf) · [Slides](Documentation/2025_AR_PLATET_presentation.pdf) (PDF, in French, about the prototype) |
 
@@ -30,7 +30,7 @@ A terrain set on a real surface and sculpted point by point; two teams deployed 
 
 ## Result
 
-Version 1.0 is a complete game on a phone: place and sculpt the terrain, deploy two armies, start the battle, drop bombs, until one side has no soldier and no building left. The video shows the v0.2 prototype.
+Version 1.0 is a complete game on a phone: place and sculpt the terrain, deploy two armies, start the battle, drop bombs, until one side has no soldier and no building left. The video shows a full game of version 1.0.
 
 ## The idea
 
