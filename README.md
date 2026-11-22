@@ -8,13 +8,13 @@ Battlefield simulation in augmented reality on an Android phone, built with Unit
 
 | At a glance | |
 |---|---|
-| **Dates** | 2025 |
+| **Dates** | 2025 (ENSIM prototype) · 2026 (v1.0) |
 | **Context** | augmented reality · solo project · ENSIM |
 | **Technologies** | AR · Unity · C# · AR Foundation · Android |
-| **Play it** | [v0.2 Android APK](https://github.com/ThibPltt/ARmageddon/releases/latest) (ARCore device) |
-| **Video** | [Demo on YouTube](https://www.youtube.com/watch?v=-H1b89DvUtM) |
+| **Play it** | [v1.0 Android APK](https://github.com/ThibPltt/ARmageddon/releases/latest) (ARCore device) |
+| **Video** | [Demo on YouTube](https://www.youtube.com/watch?v=-H1b89DvUtM) (v0.2 prototype) |
 | **Case study** | [thibautplatet.com/en/projects/armageddon.html](https://thibautplatet.com/en/projects/armageddon.html) |
-| **Documents** | [Report](Documentation/2025_AR_PLATET_rapport.pdf) · [Slides](Documentation/2025_AR_PLATET_presentation.pdf) (PDF, in French) |
+| **Documents** | [Report](Documentation/2025_AR_PLATET_rapport.pdf) · [Slides](Documentation/2025_AR_PLATET_presentation.pdf) (PDF, in French, about the prototype) |
 
 ## Problem
 
@@ -22,41 +22,45 @@ Make a miniature battlefield appear in the room, and be able to walk around it t
 
 ## Role
 
-Solo project, ENSIM 4th year (Interaction Personnes-Systèmes), supervised by E. Blanchard and C. Coupry.
+Solo project, ENSIM 4th year (Interaction Personnes-Systèmes), supervised by E. Blanchard and C. Coupry. Version 1.0 was built afterwards, as a personal project.
 
 ## Decisions
 
-A terrain generated procedurally on the detected floor; a relief raised or lowered with two fingers; a lock on the terrain before placing soldiers and buildings on it.
+A terrain set on a real surface and sculpted point by point; two teams deployed on either side of a front line; a battle that the player watches and bombs, while the soldiers act on their own.
 
 ## Result
 
-A prototype that runs on a phone, shown on video: terrain, nature, soldiers and buildings placed with a tap. Soldier movement is prototyped in a test scene. Improvements are planned.
+Version 1.0 is a complete game on a phone: place and sculpt the terrain, deploy two armies, start the battle, drop bombs, until one side has no soldier and no building left. The video shows the v0.2 prototype.
 
 ## The idea
 
-ARmageddon makes a miniature battlefield appear in the room you are in. The phone detects the floor: a hilly terrain rises from it, gets covered with trees, rocks and flowers, then takes soldiers and buildings, in a cartoon style.
+ARmageddon makes a miniature battlefield appear in the room you are in. The phone detects the floor; a terrain is set on it and gets covered with trees, rocks and grass, then two armies fight on it, in a cartoon style.
 
 The player walks around the scene and watches it from every angle. The starting idea: re-enact battles while seeing the whole battlefield, and show what augmented reality makes possible.
 
-## Build and result
+## How a game goes
 
-A prototype built alone in about fifteen hours, between lab sessions and personal work, with Unity 2022.3 and C#, AR Foundation 5.1 and ARCore.
+The interface is in French; button names are given as they appear in the game.
 
-- A terrain generated on the detected floor, with an adjustable relief.
-- A lock on the terrain, which can be lifted afterwards.
-- Soldiers and buildings placed anywhere, with a tap.
-- A three-button interface: Soldats (soldiers), Bâtiments (buildings) and Lock.
+- **Place the terrain.** An aiming frame follows the detected floor at the centre of the screen. Set the size (1 to 3 m), then tap *Poser le terrain*: the terrain is set where you aim, facing you.
+- **Sculpt.** In *Sculpter* mode, tap the terrain to set a point, then hold *Monter* or *Creuser* (or drag with two fingers) to raise or dig around it. The *Zone* slider sets the brush size; dug areas fill with water.
+- **Lock and deploy.** *Lock* freezes the relief and draws the front line, the blue half facing you. Each team places up to 30 soldiers and 3 buildings on its side; *Annuler* removes the last one.
+- **Battle.** *Lancer la bataille*: each soldier seeks the nearest enemy, closes in and shoots. Each team has 2 bombs: tap *Bombe bleue* or *Bombe rouge*, then the terrain, and the bomb falls.
+- **Result.** A team wins when the other has no soldier and no building left. Then *Rejouer la même bataille*, *Nouvelles armées* or *Nouveau terrain*.
 
-Built in increments: first a working, interactive terrain, then the soldiers and buildings, finally the interface and the nature.
+## Under the hood
 
-## From the floor of the room to the terrain
+- **Terrain on a real surface.** AR Foundation detects the planes of the room. The terrain mesh starts almost flat and is sculpted point by point with a brush, down below floor level for the lakes.
+- **Scenery.** Trees, rocks, bushes and grass are placed with Perlin noise: a dense forest band along the edges, scattered groves inside, 260 pieces at most for phone performance. The scenery is purely visual and has no collision.
+- **Navigation.** The NavMesh is baked at runtime on the sculpted mesh when the terrain is locked, and rebuilt after each crater, so soldiers walk around hills and stay out of the water.
+- **Soldiers.** A soldier hears an enemy beyond its firing range and walks towards it, then fires once a second, with a 70% chance to hit.
+- **Buildings.** Each one belongs to a team and gives cover: a soldier standing next to it is hit far less often, and its walls stop the bullets. Five stopped bullets bring it down.
+- **Bombs.** The blast wounds soldiers, damages buildings and digs a crater in the relief; two well-placed bombs bring a building down.
+- **Interface, effects and sound.** The interface is built by code within the screen’s safe area: what you read at the top, what you touch at the bottom, one main action per step. Explosions, smoke, dust and sounds are generated by code, with no imported file, along with short vibrations. When AR tracking is lost, the game pauses and says why (too dark, moving too fast, floor too plain).
 
-- **Detect the floor.** AR Foundation finds the flat surfaces of the room; the app keeps the lowest one and hides the others.
-- **Generate the relief.** The terrain mesh is computed with Perlin noise over five octaves; its height falls to zero at the edges.
-- **Raise it.** Centred on the detected surface, the terrain rises from the floor.
-- **Plant the scenery.** Trees, rocks and flowers are scattered at random, each one set at the height of the relief.
-- **Sculpt.** Two fingers dragged up or down raise or lower the relief; the scenery follows the new height.
-- **Lock.** The Lock button freezes the terrain; it then reads Unlock, to resume editing.
+## The v0.2 prototype
+
+The first version, built in about fifteen hours at ENSIM in 2025: a terrain raised from the detected floor with two fingers, a Lock button, and soldiers and buildings placed with a tap. Soldier navigation was tested in a separate scene.
 
 <table>
 <tr>
@@ -69,10 +73,6 @@ Built in increments: first a working, interactive terrain, then the soldiers and
 </tr>
 </table>
 
-## Soldiers and buildings
-
-The Soldats and Bâtiments buttons switch on a placement mode: at the next tap, a ray is cast from the screen, and the object appears where that ray meets the terrain.
-
 <table>
 <tr>
 <td width="50%"><img src="docs/media/soldiers.webp" width="100%" alt="Three cartoon-style soldiers in front of a brick building topped with two water tanks, among trees and rocks."></td>
@@ -84,40 +84,39 @@ The Soldats and Bâtiments buttons switch on a placement mode: at the next tap, 
 </tr>
 </table>
 
-## Soldier navigation
-
-Soldiers are meant to seek each other out and fight. This behaviour is prototyped in a test scene, with Unity’s navigation system (NavMesh): each soldier spots the nearest one within a given radius, reaches it by going around obstacles, and both disappear on contact. On the generated terrain, NavMesh does not yet treat the procedural mesh, reshaped in real time, as a walkable surface: that is the next step.
-
 <img src="docs/media/pathfinding.webp" width="100%" alt="Test scene in the Unity editor: two soldiers on either side of a wall, on a blue surface; red arrows trace their paths, which go around the wall and meet.">
 
-<sub>The test scene: the two soldiers go around the wall to meet.</sub>
+<sub>The navigation test scene: the two soldiers go around the wall to meet.</sub>
 
 ## In the project
 
 | Script (`Assets/Scripts/`) | Role |
 |---|---|
-| `ARPlacement.cs` | Plane detection with AR Foundation, keeps the lowest surface and hides the others. |
-| `ProceduralTerrain.cs` | Terrain mesh from Perlin noise (five octaves), edge falloff, rise animation, scattered scenery. |
-| `TerrainHeightController.cs` | Two-finger gesture to raise or lower the relief. |
-| `Locker.cs` | Lock / Unlock button for terrain editing. |
-| `SpawnSoldier.cs`, `SpawnBuilding.cs` | Placement mode: a ray cast from the tap onto the terrain layer. |
-| `SoldierPathFInding.cs` | NavMesh agent that reaches the nearest soldier in range (test scene). |
+| `GameManager.cs` | Game phases (scanning, sculpting, deployment, battle), teams and front line, limits, undo, replay, victory, pause when tracking is lost. |
+| `GameUI.cs` | Interface built by code: welcome and how-to-play screens, step buttons, sliders, result panel. |
+| `ARPlacement.cs` | Plane detection and placement of the terrain with an aiming frame, from 1 to 3 m. |
+| `ProceduralTerrain.cs` | Terrain mesh, lakes, procedural scenery (Perlin noise), NavMesh baked at runtime. |
+| `TerrainHeightController.cs` | Point-based sculpting: *Monter* / *Creuser* buttons or two-finger drag, adjustable brush. |
+| `Locker.cs` | Lock / Unlock of the terrain. |
+| `SpawnSoldier.cs`, `SpawnBuilding.cs`, `PlacementInput.cs` | Placement of soldiers and buildings on the terrain, from a tap. |
+| `Unit.cs` | Soldier behaviour: hear, approach, shoot, take damage. |
+| `Building.cs` | Team-owned building: cover, damage, collapse. |
+| `Bombardment.cs` | Bombs for each team: fall, blast and crater. |
+| `Effects.cs`, `FlashFade.cs`, `GameAudio.cs`, `Haptics.cs` | Particles, lights, sounds and vibrations generated by code. |
+| `HoldButton.cs` | Buttons that act while held (*Monter* / *Creuser*). |
+| `SoldierPathFInding.cs` | Navigation agent of the v0.2 test scene. |
 
-Scenes: `Assets/Scenes/MainScene.unity` (the game) and `Assets/Scenes/Test.unity` (navigation test).
+Scenes: `Assets/Scenes/MainScene.unity` (the game) and `Assets/Scenes/Test.unity` (v0.2 navigation test).
 
 ## Run it
 
-- **On a phone:** download `ARmageddon_v0.2.apk` from the [latest release](https://github.com/ThibPltt/ARmageddon/releases/latest) and install it on an Android device that supports ARCore (allow installs from unknown sources).
+- **On a phone:** download the APK from the [latest release](https://github.com/ThibPltt/ARmageddon/releases/latest) and install it on an Android device that supports ARCore (allow installs from unknown sources). Plan about 2 m × 2 m of clear floor; bright, textured floors are detected fastest. Version 1.0 has a new package name and installs next to v0.2 instead of replacing it: you can uninstall v0.2.
 - **From the source:** open the project with Unity **2022.3.62f3**, import the [third-party packages](#third-party-assets) into the folders shown, switch the platform to Android in *File › Build Settings*, then *Build And Run* with the phone connected over USB (developer mode enabled). Android settings: IL2CPP, ARM64, OpenGLES3, minimum API level 24, Google ARCore as the only XR provider. AR Foundation 5.1 with ARCore, XR Interaction Toolkit, UI Toolkit.
-- **Unity version:** the project was developed with 2022.3.50f1 and moved to 2022.3.62f3 for v0.2, a version that includes Unity’s October 2025 security fix.
-
-## Next steps
-
-Several teams of soldiers, water and roads, a bombing system.
+- **Unity version:** the project was developed with 2022.3.50f1 and moved to 2022.3.62f3, a version that includes Unity’s October 2025 security fix.
 
 ## Credits
 
-Solo project by Thibaut Platet, ENSIM, 2025. Trees, rocks, soldiers and buildings: 3D models from asset packs imported into Unity, under their own licences. More on [thibautplatet.com](https://thibautplatet.com/en/projects/armageddon.html).
+Solo project by Thibaut Platet, ENSIM, 2025, continued in 2026 for v1.0. Trees, rocks, soldiers, buildings, bombs and the water shader: asset packs imported into Unity, under their own licences. Particles and sounds are generated by code. More on [thibautplatet.com](https://thibautplatet.com/en/projects/armageddon.html).
 
 ## Licence
 
@@ -131,7 +130,9 @@ The packages below are **not included** in this repository and are not covered b
 |---|---|---|---|
 | `Assets/Soldiers` | [Toony Tiny People Demo](https://assetstore.unity.com/packages/slug/113188) — Polygon Blacksmith | Unity Asset Store | Asset Store EULA |
 | `Assets/Buildings` | [Toony Tiny City Demo](https://assetstore.unity.com/packages/slug/176087), with the Toony Tiny Citizens demo | Unity Asset Store | Asset Store EULA |
-| `Assets/Terrain` | [Low-Poly Simple Nature Pack](https://assetstore.unity.com/packages/slug/162153) — Just Create | Unity Asset Store | Asset Store EULA |
+| `Assets/Terrain`, `Assets/SimpleNaturePack` | [Low-Poly Simple Nature Pack](https://assetstore.unity.com/packages/slug/162153) — Just Create | Unity Asset Store | Asset Store EULA |
+| `Assets/BTM_Assets` | [Rockets, Missiles & Bombs - Cartoon Low Poly Pack](https://assetstore.unity.com/packages/slug/73141) | Unity Asset Store | Asset Store EULA |
+| `Assets/BasicToonWaterShader` | [Basic Toon Water Shader - Built-In](https://assetstore.unity.com/packages/slug/303293) | Unity Asset Store | Asset Store EULA |
 
 Included in the repository under their own licences:
 
@@ -140,5 +141,5 @@ Included in the repository under their own licences:
 <details>
 <summary>🇫🇷 En bref</summary>
 
-Simulation de champ de bataille en réalité augmentée sur téléphone Android, sous Unity : faire apparaître un champ de bataille miniature dans la pièce, et pouvoir en faire le tour pour l’observer sous tous les angles. Projet réalisé seul à l’ENSIM (2025). APK Android dans les [Releases](https://github.com/ThibPltt/ARmageddon/releases/latest). Fiche complète sur [thibautplatet.com](https://thibautplatet.com/projets/armageddon.html).
+Simulation de champ de bataille en réalité augmentée sur téléphone Android, sous Unity : faire apparaître un champ de bataille miniature dans la pièce, et pouvoir en faire le tour pour l’observer sous tous les angles. Prototype réalisé seul à l’ENSIM (2025), puis version 1.0 (2026) : poser et sculpter le terrain, déployer deux armées, lancer la bataille et bombarder. APK Android dans les [Releases](https://github.com/ThibPltt/ARmageddon/releases/latest). Fiche complète sur [thibautplatet.com](https://thibautplatet.com/projets/armageddon.html).
 </details>
