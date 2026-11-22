@@ -1,18 +1,19 @@
-using System.Collections.Generic;
+ï»¿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class SoldierAI : MonoBehaviour
+// Nom de classe identique au nom du fichier, comme Unity l'exige pour un MonoBehaviour.
+public class SoldierPathFInding : MonoBehaviour
 {
     private NavMeshAgent agent;
     private Transform target;
 
-    private float detectionRadius = 10f; // Portée de détection
+    private float detectionRadius = 10f; // PortÃ©e de dÃ©tection
 
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
-        InvokeRepeating(nameof(FindNearestTarget), 0f, 0.5f); // met à jour la cible régulièrement
+        InvokeRepeating(nameof(FindNearestTarget), 0f, 0.5f); // met Ã  jour la cible rÃ©guliÃ¨rement
     }
 
     void Update()
@@ -39,7 +40,7 @@ public class SoldierAI : MonoBehaviour
 
         foreach (GameObject s in allSoldiers)
         {
-            if (s == gameObject) continue; // pas soi-même
+            if (s == gameObject) continue; // pas soi-mÃªme
 
             float d = Vector3.Distance(transform.position, s.transform.position);
             if (d < closestDist && d <= detectionRadius)

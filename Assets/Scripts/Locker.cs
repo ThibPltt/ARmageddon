@@ -1,8 +1,9 @@
-using UnityEngine;
+Ôªøusing UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 
-public class TerrainManager : MonoBehaviour
+// Bouton Lock / Unlock : fige le relief, puis recalcule le NavMesh sur le relief final.
+public class Locker : MonoBehaviour
 {
     [SerializeField] private GameObject ProceduralTerrain;
     [SerializeField] private Button toggleButton;
@@ -14,14 +15,14 @@ public class TerrainManager : MonoBehaviour
 
     void Start()
     {
-        UpdateButtonText(); // Appliquer couleur rouge dËs le dÈbut
+        UpdateButtonText(); // Appliquer couleur rouge d√®s le d√©but
     }
 
     public void SpawnTerrainClone()
     {
         if (currentTerrain != null)
         {
-            Debug.LogWarning("Un clone existe dÈj‡ !");
+            Debug.LogWarning("Un clone existe d√©j√† !");
             return;
         }
 
@@ -33,7 +34,7 @@ public class TerrainManager : MonoBehaviour
 
         if (currentTHC == null)
         {
-            Debug.LogWarning("TerrainHeightController non trouvÈ sur le clone !");
+            Debug.LogWarning("TerrainHeightController non trouv√© sur le clone !");
         }
         else
         {
@@ -42,7 +43,7 @@ public class TerrainManager : MonoBehaviour
             UpdateButtonText();
         }
 
-        Debug.Log("Clone de terrain crÈÈ et THC activÈ.");
+        Debug.Log("Clone de terrain cr√©√© et THC activ√©.");
     }
 
     public void ToggleTerrainLock()
@@ -57,24 +58,36 @@ public class TerrainManager : MonoBehaviour
             }
             else
             {
-                Debug.LogWarning("Aucun clone trouvÈ.");
+                Debug.LogWarning("Aucun clone trouv√©.");
                 return;
             }
         }
 
+        GameManager gm = GameManager.Instance;
+        if (gm != null && !gm.CanEditTerrain)
+        {
+            gm.ShowMessage("Pas pendant la bataille.");
+            return;
+        }
+
         if (!isLocked)
         {
-            currentTerrain.enabled = false;
+            currentTerrain.isLocked = true;
             if (currentTHC != null) currentTHC.enabled = false;
+            currentTerrain.DressTerrain(); // lacs dans les creux, d√©cor autour
+            currentTerrain.BakeNavMesh(); // les soldats marchent sur le relief sculpt√©, sans entrer dans l'eau
             isLocked = true;
-            Debug.Log("Terrain verrouillÈ.");
+            if (gm != null) gm.OnTerrainLocked();
+            Debug.Log("Terrain verrouill√©.");
         }
         else
         {
-            currentTerrain.enabled = true;
+            currentTerrain.isLocked = false;
+            currentTerrain.UndressTerrain();
             if (currentTHC != null) currentTHC.enabled = true;
             isLocked = false;
-            Debug.Log("Terrain dÈverrouillÈ.");
+            if (gm != null) gm.OnTerrainUnlocked();
+            Debug.Log("Terrain d√©verrouill√©.");
         }
 
         UpdateButtonText();
@@ -82,6 +95,13 @@ public class TerrainManager : MonoBehaviour
 
     private void UpdateButtonText()
     {
+        // Pendant une partie, l'interface (GameUI) choisit elle-m√™me le texte et la couleur du bouton.
+        if (GameManager.Instance != null)
+        {
+            GameManager.Instance.RefreshUI();
+            return;
+        }
+
         if (toggleButtonText != null)
         {
             toggleButtonText.text = isLocked ? "Unlock" : "Lock";

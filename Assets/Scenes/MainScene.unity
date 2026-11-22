@@ -1292,7 +1292,7 @@ MonoBehaviour:
   mainCamera: {fileID: 52189350}
   terrainLayer:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 64
   buildingScale: {x: 0.025, y: 0.025, z: 0.025}
 --- !u!1 &820044762
 GameObject:
@@ -3033,7 +3033,7 @@ MonoBehaviour:
   mainCamera: {fileID: 52189350}
   terrainLayer:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 64
 --- !u!4 &1916872025
 Transform:
   m_ObjectHideFlags: 0
